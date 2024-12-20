@@ -15,15 +15,15 @@ export class UserInputComponent {
 
   enteredInitialInvestment = '0';
   enteredAnnualInvestment = '0';
-  enteredExpectedReturn = '5';
-  enteredDurationInYears = '10';
+  enteredExpectedReturn = '0';
+  enteredDurationInYears = '0';
 
   onSubmit() {
     this.calculate.emit({
-      initialInvestment: Number(this.enteredInitialInvestment),
-      duration: Number(this.enteredDurationInYears),
-      expectedReturn: Number(this.enteredExpectedReturn),
-      annualInvestment: Number(this.enteredAnnualInvestment)
+      initialInvestment: +this.enteredInitialInvestment,
+      duration: +this.enteredDurationInYears,
+      expectedReturn: +this.enteredExpectedReturn,
+      annualInvestment: +this.enteredAnnualInvestment
     });
   }
 }
