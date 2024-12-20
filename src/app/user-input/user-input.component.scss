@@ -1,29 +1,48 @@
 @import "../../variables.scss";
 
-.user-input {
+form {
   padding: 1rem;
-  padding-top: 1rem;
-  display: flex;
-  width: 50%;
+  max-width: 30rem;
   margin: auto;
+  .input-group {
+    padding-right: 20px;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-evenly;
+    label {
+      display: block;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: $borderColorWidth;
+    }
+  }
+  button {
+    margin-top: 1rem;
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #00aaff;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    &:hover {
+      transition: all 0.5s ease;
+      background-color: #00ff9d;
+      color: black;
+    }
+  }
 }
 
-.input-group {
-  margin-right: 20px;
-  padding: 20px;
-}
-
-.input-group input {
-  width: 100%;
-  padding: 10px;
-  border: $borderColorWidth;
-  border-radius: 5px;
-  margin-bottom: 1rem;
-}
-
-@media (max-width: 800px) {
-  .user-input {
-    flex-direction: column;
+@media (max-width: 550px) {
+  form {
     width: 90%;
+    .input-group {
+      margin-top: 1rem;
+      flex-direction: column;
+    }
   }
 }

@@ -1,17 +1,28 @@
-<section class="user-input">
-    <div class="input-group">
-        <label>Initial Investment</label>
-        <input type="number" required value="10000">
+<section>
+    <form>
+        <div class="input-group">
+            <p>
+                <label for="initial-investment">Initial Investment</label>
+                <input id="initial-investment" type="number" required value="10000">
+            </p>
 
-        <label>Annual Contribution</label>
-        <input type="number" required value="1000">
-    </div>
+            <p>
+                <label for="annual-contribution">Annual Contribution</label>
+                <input id="annual-contribution" type="number" required value="1000">
+            </p>
+        </div>
 
-    <div class="input-group">
-        <label>Interest Rate</label>
-        <input type="number" required value="1.5">
+        <div class="input-group">
+            <p>
+                <label for="interest-rate">Interest Rate %</label>
+                <input id="interest-rate" type="number" required value="1.5">
+            </p>
 
-        <label>Duration In Years</label>
-        <input type="number" required value="5">
-    </div>
+            <p>
+                <label for="duration-in-years">Duration In Years</label>
+                <input id="duration-in-years" type="number" required value="5">
+            </p>
+        </div>
+        <button>Calculate =</button>
+    </form>
 </section>
