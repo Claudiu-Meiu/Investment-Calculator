@@ -1,0 +1,29 @@
+@import "../../variables.scss";
+
+.user-input {
+  padding: 1rem;
+  padding-top: 1rem;
+  display: flex;
+  width: 50%;
+  margin: auto;
+}
+
+.input-group {
+  margin-right: 20px;
+  padding: 20px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: $borderColorWidth;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 800px) {
+  .user-input {
+    flex-direction: column;
+    width: 90%;
+  }
+}
