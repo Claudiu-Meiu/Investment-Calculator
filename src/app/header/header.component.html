@@ -2,4 +2,25 @@
     <img src="ic.png">
     <h1>Investment Calculator</h1>
     <h3>Estimate Your Future Earnings</h3>
+
+    <div class="info">
+        <button class="info-button" type="button" (mouseover)="onInfo()">
+            <i class="bi bi-info-circle"></i>
+        </button>
+        @if (showInfo === true) {
+        <div class="info-content" (mouseleave)="onInfoLeave()">
+            <p><b>Initial Investment: </b>Enter the amount of money you plan to invest initially. This is the starting
+                point for your investment journey.</p>
+            <hr>
+            <p><b>Annual Contribution: </b>Specify how much money you will contribute to your investment each year. This
+                helps to grow your investment over time.</p>
+            <hr>
+            <p><b>Expected Return: </b>Input the anticipated annual return rate (as a percentage) for your investment.
+                This rate reflects the growth you expect from your investment.</p>
+            <hr>
+            <p><b>Duration in Years: </b>Indicate the total number of years you plan to keep your investment. This will
+                help calculate the future value of your investment.</p>
+        </div>
+        }
+    </div>
 </header>

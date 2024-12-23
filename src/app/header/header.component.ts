@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  showInfo: boolean = false;
+
+  onInfo() {
+    this.showInfo = true;
+  }
+
+  onInfoLeave() {
+    this.showInfo = false;
+  }
+}

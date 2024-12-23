@@ -1,3 +1,5 @@
+@import "../../variables.scss";
+
 header {
   margin: auto;
   text-align: center;
@@ -6,10 +8,33 @@ header {
   margin-bottom: 1rem;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
+  .info {
+    text-align: center;
+    .info-button {
+      cursor: pointer;
+      font-size: 18px;
+      border: none;
+      background: none;
+    }
+    .info-content {
+      font-size: 12px;
+      border-radius: 5px;
+      padding: 1rem;
+      width: 50%;
+      margin: auto;
+      text-align: left;
+      background-color: whitesmoke;
+    }
+  }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 550px) {
   header {
     width: 90%;
+    .info {
+      .info-content {
+        width: 90%;
+      }
+    }
   }
 }
