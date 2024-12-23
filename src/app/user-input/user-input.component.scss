@@ -15,7 +15,7 @@ form {
     input {
       width: 100%;
       padding: 10px;
-      border-radius: 5px; 
+      border-radius: 5px;
       border: $borderColorWidth;
     }
     .error {
@@ -28,7 +28,23 @@ form {
       border: $borderColorWidth;
     }
   }
-  button {
+  .button-inactive {
+    margin-top: 1rem;
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    background-color: $errorClr;
+    color: black;
+    font-size: 1rem;
+    cursor: pointer;
+    &:hover {
+      transition: all 0.5s ease;
+      background-color: #e4e4e4;
+      color: black;
+    }
+  }
+  .button-active {
     margin-top: 1rem;
     width: 100%;
     padding: 0.5rem;

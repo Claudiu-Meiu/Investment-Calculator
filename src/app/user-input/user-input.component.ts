@@ -1,11 +1,12 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import type { InvestmentInput } from './investment-input.model';
 
 @Component({
   selector: 'app-user-input',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './user-input.component.html',
   styleUrl: './user-input.component.scss',
 })
@@ -18,7 +19,17 @@ export class UserInputComponent {
   enteredDurationInYears = '';
 
   onSubmit(form: any) {
-    if (form.valid) {
+    if (
+      this.enteredInitialInvestment <= '0' ||
+      this.enteredAnnualInvestment <= '0' ||
+      this.enteredExpectedReturn <= '0' ||
+      this.enteredDurationInYears <= '0'
+    ) {
+      form.resetForm();
+      Object.keys(form.controls).forEach((controlName) => {
+        form.controls[controlName].markAsTouched();
+      });
+    } else if (form.valid) {
       this.calculate.emit({
         initialInvestment: parseFloat(this.enteredInitialInvestment),
         duration: parseFloat(this.enteredDurationInYears),
@@ -26,6 +37,10 @@ export class UserInputComponent {
         annualInvestment: parseFloat(this.enteredAnnualInvestment),
       });
       form.resetForm();
+    } else {
+      Object.keys(form.controls).forEach((controlName) => {
+        form.controls[controlName].markAsTouched();
+      });
     }
   }
 }
