@@ -38,3 +38,12 @@ header {
     }
   }
 }
+@media (max-width: 950px) {
+  header {
+    .info {
+      .info-content {
+        width: 60%;
+      }
+    }
+  }
+}
