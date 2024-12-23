@@ -44,4 +44,8 @@ export class AppComponent {
     }
     this.resultsData = annualData;
   }
+
+  onReset() {
+    this.resultsData = undefined;
+  }
 }

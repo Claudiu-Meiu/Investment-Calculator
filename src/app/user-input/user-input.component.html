@@ -3,40 +3,64 @@
         <div class="input-group">
             <p>
                 <label for="initial-investment">Initial Investment</label>
-                <input id="initial-investment" name="initialInvestment" type="number" [(ngModel)]="enteredInitialInvestment" required>
-                @if (investmentForm.controls['initialInvestment'].invalid && investmentForm.controls['initialInvestment'].touched) {
-                    <div><small class="error">Enter a value greater than 0.</small></div>
-                }
+                <input id="initial-investment" name="initialInvestment" type="number"
+                    [(ngModel)]="enteredInitialInvestment" required>
+                @if (investmentForm.controls['initialInvestment'].invalid &&
+                investmentForm.controls['initialInvestment'].touched) {
+            <div><small class="error">Enter a value greater than 0.</small></div>
+            }
             </p>
 
             <p>
                 <label for="annual-contribution">Annual Contribution</label>
-                <input id="annual-contribution" name="annualContribution" type="number" [(ngModel)]="enteredAnnualInvestment" required>
-                @if (investmentForm.controls['annualContribution'].invalid && investmentForm.controls['annualContribution'].touched) {
-                    <div><small class="error">Enter a value greater than 0.</small></div>
-                }
+                <input id="annual-contribution" name="annualContribution" type="number"
+                    [(ngModel)]="enteredAnnualInvestment" required>
+                @if (investmentForm.controls['annualContribution'].invalid &&
+                investmentForm.controls['annualContribution'].touched) {
+            <div><small class="error">Enter a value greater than 0.</small></div>
+            }
             </p>
         </div>
 
         <div class="input-group">
             <p>
                 <label for="expected-return">Expected Return</label>
-                <input id="expected-return" name="expectedReturn" type="number" [(ngModel)]="enteredExpectedReturn" required>
-                @if (investmentForm.controls['expectedReturn'].invalid && investmentForm.controls['expectedReturn'].touched) {
-                    <div>
-                    <small class="error">Enter a value greater than 0.</small></div>
-                }
+                <input id="expected-return" name="expectedReturn" type="number" [(ngModel)]="enteredExpectedReturn"
+                    required>
+                @if (investmentForm.controls['expectedReturn'].invalid &&
+                investmentForm.controls['expectedReturn'].touched) {
+            <div>
+                <small class="error">Enter a value greater than 0.</small>
+            </div>
+            }
             </p>
 
             <p>
                 <label for="duration-in-years">Duration In Years</label>
-                <input id="duration-in-years" name="durationInYears" type="number" [(ngModel)]="enteredDurationInYears" required>
-                @if (investmentForm.controls['durationInYears'].invalid && investmentForm.controls['durationInYears'].touched) {
-                    <div>
-                    <small class="error">Enter a value greater than 0.</small></div>
-                }
+                <input id="duration-in-years" name="durationInYears" type="number" [(ngModel)]="enteredDurationInYears"
+                    required>
+                @if (investmentForm.controls['durationInYears'].invalid &&
+                investmentForm.controls['durationInYears'].touched) {
+            <div>
+                <small class="error">Enter a value greater than 0.</small>
+            </div>
+            }
             </p>
         </div>
-        <button type="submit" [ngClass]="{'button-active': investmentForm.valid, 'button-inactive': !investmentForm.valid}">Calculate</button>
+        <div class="refresh-button-wrapper">
+            <button type="button"
+                [ngClass]="{'refresh-button-active': investmentForm.valid, 'refresh-button-inactive': !investmentForm.valid}"
+                (click)="resetForm(investmentForm)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                    class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2z" />
+                    <path
+                        d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466" />
+                </svg>
+                <div>Reset</div>
+            </button>
+        </div>
+        <button type="submit"
+            [ngClass]="{'submit-button-active': investmentForm.valid, 'submit-button-inactive': !investmentForm.valid}">Calculate</button>
     </form>
 </section>

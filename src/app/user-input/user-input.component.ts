@@ -12,6 +12,7 @@ import type { InvestmentInput } from './investment-input.model';
 })
 export class UserInputComponent {
   @Output() calculate = new EventEmitter<InvestmentInput>();
+  @Output() reset = new EventEmitter<void>();
 
   enteredInitialInvestment = '';
   enteredAnnualInvestment = '';
@@ -36,11 +37,18 @@ export class UserInputComponent {
         expectedReturn: parseFloat(this.enteredExpectedReturn),
         annualInvestment: parseFloat(this.enteredAnnualInvestment),
       });
-      form.resetForm();
     } else {
       Object.keys(form.controls).forEach((controlName) => {
         form.controls[controlName].markAsTouched();
       });
     }
+  }
+  resetForm(form: any) {
+    this.enteredInitialInvestment = '';
+    this.enteredAnnualInvestment = '';
+    this.enteredExpectedReturn = '';
+    this.enteredDurationInYears = '';
+    form.resetForm();
+    this.reset.emit();
   }
 }
