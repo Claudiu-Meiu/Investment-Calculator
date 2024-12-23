@@ -19,8 +19,9 @@ form {
       border: $borderColorWidth;
     }
     .error {
+      position: absolute;
       text-align: center;
-      padding: 0.5rem;
+      padding: 0.2rem;
       font-size: 11px;
     }
   }
@@ -33,7 +34,7 @@ form {
     padding: 0.5rem;
     border: none;
     border-radius: 5px;
-    background-color: $errorClr;
+    background-color: whitesmoke;
     color: black;
     font-size: 1rem;
     &:hover {

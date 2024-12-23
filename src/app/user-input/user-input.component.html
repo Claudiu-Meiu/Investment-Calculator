@@ -7,7 +7,8 @@
                     [(ngModel)]="enteredInitialInvestment" required>
                 @if (investmentForm.controls['initialInvestment'].invalid &&
                 investmentForm.controls['initialInvestment'].touched) {
-            <div><small class="error">Enter a value greater than 0.</small></div>
+            <div><small class="error"><i class="bi bi-exclamation-circle"></i> Please enter a valid initial
+                    investment.</small></div>
             }
             </p>
 
@@ -17,20 +18,22 @@
                     [(ngModel)]="enteredAnnualInvestment" required>
                 @if (investmentForm.controls['annualContribution'].invalid &&
                 investmentForm.controls['annualContribution'].touched) {
-            <div><small class="error">Enter a value greater than 0.</small></div>
+            <div><small class="error"><i class="bi bi-exclamation-circle"></i> Please enter a valid annual
+                    contribution.</small></div>
             }
             </p>
         </div>
 
         <div class="input-group">
             <p>
-                <label for="expected-return">Expected Return %</label>
+                <label for="expected-return">Expected Return <i class="bi bi-percent"></i></label>
                 <input id="expected-return" name="expectedReturn" type="number" [(ngModel)]="enteredExpectedReturn"
                     required>
                 @if (investmentForm.controls['expectedReturn'].invalid &&
                 investmentForm.controls['expectedReturn'].touched) {
             <div>
-                <small class="error">Enter a value greater than 0.</small>
+                <small class="error"><i class="bi bi-exclamation-circle"></i> Please enter a valid expected return
+                    rate.</small>
             </div>
             }
             </p>
@@ -42,7 +45,7 @@
                 @if (investmentForm.controls['durationInYears'].invalid &&
                 investmentForm.controls['durationInYears'].touched) {
             <div>
-                <small class="error">Enter a value greater than 0.</small>
+                <small class="error"><i class="bi bi-exclamation-circle"></i> Please enter a valid duration in years.</small>
             </div>
             }
             </p>
