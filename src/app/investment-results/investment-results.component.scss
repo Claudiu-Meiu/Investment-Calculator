@@ -1,11 +1,16 @@
 @import "../../variables.scss";
 
 p {
+  padding: 0.5rem;
+  margin: auto;
   text-align: center;
+  font-size: 13px;
+  color: #ff000099;
 }
 
 table {
-  border-radius: 10px;
+  background-color: #f6f6f6;
+  border-radius: 5px;
   margin: auto;
   table-layout: fixed;
   border-spacing: 1rem;
@@ -20,7 +25,8 @@ table {
 
 @media (max-width: 550px) {
   table {
-    margin-top: 1rem;
+    padding: 1rem;
+    padding-top: 2rem;
     width: 90%;
     overflow-x: auto;
     display: block;
@@ -54,6 +60,9 @@ table {
 }
 
 @media (max-width: 900px) {
+    p {
+      width: 90%;
+    }
     table {
         width: 90%;
     }
