@@ -43,7 +43,7 @@ export class UserInputComponent {
       });
     }
   }
-  resetForm(form: any) {
+  onResetForm(form: any) {
     this.enteredInitialInvestment = '';
     this.enteredAnnualInvestment = '';
     this.enteredExpectedReturn = '';
