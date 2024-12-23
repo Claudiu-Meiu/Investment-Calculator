@@ -7,23 +7,25 @@ import type { InvestmentInput } from './investment-input.model';
   standalone: true,
   imports: [FormsModule],
   templateUrl: './user-input.component.html',
-  styleUrl: './user-input.component.scss'
+  styleUrl: './user-input.component.scss',
 })
 export class UserInputComponent {
-
   @Output() calculate = new EventEmitter<InvestmentInput>();
 
-  enteredInitialInvestment = '0';
-  enteredAnnualInvestment = '0';
-  enteredExpectedReturn = '0';
-  enteredDurationInYears = '0';
+  enteredInitialInvestment = '';
+  enteredAnnualInvestment = '';
+  enteredExpectedReturn = '';
+  enteredDurationInYears = '';
 
-  onSubmit() {
-    this.calculate.emit({
-      initialInvestment: +this.enteredInitialInvestment,
-      duration: +this.enteredDurationInYears,
-      expectedReturn: +this.enteredExpectedReturn,
-      annualInvestment: +this.enteredAnnualInvestment
-    });
+  onSubmit(form: any) {
+    if (form.valid) {
+      this.calculate.emit({
+        initialInvestment: parseFloat(this.enteredInitialInvestment),
+        duration: parseFloat(this.enteredDurationInYears),
+        expectedReturn: parseFloat(this.enteredExpectedReturn),
+        annualInvestment: parseFloat(this.enteredAnnualInvestment),
+      });
+      form.resetForm();
+    }
   }
 }

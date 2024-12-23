@@ -1,28 +1,44 @@
 <section>
-    <form (ngSubmit)="onSubmit()">
+    <form #investmentForm="ngForm" (ngSubmit)="onSubmit(investmentForm)">
         <div class="input-group">
             <p>
                 <label for="initial-investment">Initial Investment</label>
-                <input id="initial-investment" name="initial-investment" type="number" [(ngModel)]="enteredInitialInvestment">
+                <input id="initial-investment" name="initialInvestment" type="number" [(ngModel)]="enteredInitialInvestment" required>
+                @if (investmentForm.controls['initialInvestment'].invalid && investmentForm.controls['initialInvestment'].touched) {
+                    <div>
+                    <small class="error">Initial Investment is required.</small></div>
+                }
             </p>
 
             <p>
                 <label for="annual-contribution">Annual Contribution</label>
-                <input id="annual-contribution" name="annual-contribution" type="number" [(ngModel)]="enteredAnnualInvestment">
+                <input id="annual-contribution" name="annualContribution" type="number" [(ngModel)]="enteredAnnualInvestment" required>
+                @if (investmentForm.controls['annualContribution'].invalid && investmentForm.controls['annualContribution'].touched) {
+                    <div>
+                    <small class="error">Annual Contribution is required.</small></div>
+                }
             </p>
         </div>
 
         <div class="input-group">
             <p>
                 <label for="expected-return">Expected Return</label>
-                <input id="expected-return" name="expected-return" type="number" [(ngModel)]="enteredExpectedReturn">
+                <input id="expected-return" name="expectedReturn" type="number" [(ngModel)]="enteredExpectedReturn" required>
+                @if (investmentForm.controls['expectedReturn'].invalid && investmentForm.controls['expectedReturn'].touched) {
+                    <div>
+                    <small class="error">Expected Return is required.</small></div>
+                }
             </p>
 
             <p>
                 <label for="duration-in-years">Duration In Years</label>
-                <input id="duration-in-years" name="duration-in-years" type="number" [(ngModel)]="enteredDurationInYears">
+                <input id="duration-in-years" name="durationInYears" type="number" [(ngModel)]="enteredDurationInYears" required>
+                @if (investmentForm.controls['durationInYears'].invalid && investmentForm.controls['durationInYears'].touched) {
+                    <div>
+                    <small class="error">Duration in Years is required.</small></div>
+                }
             </p>
         </div>
-        <button>Calculate =</button>
+        <button type="submit" >Calculate</button>
     </form>
 </section>

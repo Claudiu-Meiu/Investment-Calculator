@@ -15,7 +15,16 @@ form {
     input {
       width: 100%;
       padding: 10px;
-      border-radius: 5px;
+      border-radius: 5px; 
+      border: $borderColorWidth;
+    }
+    .error {
+      justify-content: center;
+      text-align: center;
+      padding: 0.5rem;
+      background-color: $errorClr;
+      font-size: 11px;
+      color: #ff000099;
       border: $borderColorWidth;
     }
   }
