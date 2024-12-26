@@ -24,7 +24,8 @@ export class UserInputComponent {
       this.enteredInitialInvestment <= '0' ||
       this.enteredAnnualInvestment <= '0' ||
       this.enteredExpectedReturn <= '0' ||
-      this.enteredDurationInYears <= '0'
+      this.enteredDurationInYears <= '0' ||
+      this.enteredDurationInYears >= '150'
     ) {
       form.resetForm();
       Object.keys(form.controls).forEach((controlName) => {
