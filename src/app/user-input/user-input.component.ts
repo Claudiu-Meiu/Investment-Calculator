@@ -1,7 +1,8 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import type { InvestmentInput } from './investment-input.model';
+
+import { InvestmentService } from '../investment.service';
 
 @Component({
   selector: 'app-user-input',
@@ -11,8 +12,7 @@ import type { InvestmentInput } from './investment-input.model';
   styleUrl: './user-input.component.scss',
 })
 export class UserInputComponent {
-  @Output() calculate = new EventEmitter<InvestmentInput>();
-  @Output() reset = new EventEmitter<void>();
+  constructor(private investmentService: InvestmentService) {}
 
   enteredInitialInvestment = '';
   enteredAnnualInvestment = '';
@@ -32,7 +32,7 @@ export class UserInputComponent {
         form.controls[controlName].markAsTouched();
       });
     } else if (form.valid) {
-      this.calculate.emit({
+      this.investmentService.calculateInvestmentResults({
         initialInvestment: parseFloat(this.enteredInitialInvestment),
         duration: parseFloat(this.enteredDurationInYears),
         expectedReturn: parseFloat(this.enteredExpectedReturn),
@@ -50,6 +50,6 @@ export class UserInputComponent {
     this.enteredExpectedReturn = '';
     this.enteredDurationInYears = '';
     form.resetForm();
-    this.reset.emit();
+    this.investmentService.reset();
   }
 }
